@@ -1,17 +1,15 @@
-import CartWidget from "./Cartwidget";
+import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+function NavBar() {
     return (
-        <nav style={{ display: "flex", justifyContent: "space-between", padding: "10px", backgroundColor: "#f8f9fa" }}>
+        <nav>
             <h1>Tienda Brightway</h1>
-            <ul style={{ listStyle: "none", display: "flex", gap: "15px" }}>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-            <CartWidget />
+            <Link to='/'>Inicio</Link>
+            <Link to='/category/electronica'>Electrónica</Link>
+            <Link to='/category/ropa'>Ropa</Link>
+            <Link to='/category/hogar'>Hogar</Link>
         </nav>
     );
-};
+}
 
 export default NavBar;
