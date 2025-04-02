@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
-import cartIcon from "/images/cart.png"; // Asegúrate de tener la imagen en /public/images
+import cartIcon from "/images/cart.png"; 
 
 const CartWidget = () => {
     const { cart } = useContext(CartContext);

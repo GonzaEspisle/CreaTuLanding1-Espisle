@@ -7,7 +7,7 @@ const ItemListContainer = () => {
     const { categoryId } = useParams();
 
     useEffect(() => {
-        // Simulación de una promesa con productos
+        
         const fetchProductos = new Promise((resolve) => {
             setTimeout(() => {
                 resolve([
