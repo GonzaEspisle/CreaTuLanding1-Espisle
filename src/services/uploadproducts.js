@@ -21,3 +21,5 @@ export const uploadProductos = async () => {
     console.log("Productos cargados correctamente.");
 };
 
+uploadProductos();
+

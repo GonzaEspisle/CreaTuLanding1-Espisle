@@ -1,19 +1,20 @@
 import React from 'react';
-import '../item.css'; // Ajusta la ruta para reflejar la ubicación correcta
+import '../item.css';
 
 const Item = ({ item }) => {
     return (
         <div className="item">
-            <img src={item.imagen} alt={item.nombre} />
-            <h2>{item.nombre}</h2>
-            <p>{item.descripcion}</p>
-            <p>Precio: ${item.precio}</p>
+            <img src={item.image} alt={item.title} />
+            <h2>{item.title}</h2>
+            <p>{item.description}</p>
+            <p>Precio: ${item.price}</p>
             <button>Ver Detalle</button>
         </div>
     );
-}
+};
 
 export default Item;
+
 
 
 
