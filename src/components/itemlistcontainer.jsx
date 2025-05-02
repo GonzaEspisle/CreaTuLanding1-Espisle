@@ -1,36 +1,33 @@
 import { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../services/firebaseconfig";
+import ItemList from "./ItemList";
 import Item from "./Item";
 import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
     const [productos, setProductos] = useState([]);
-    const { categoryId } = useParams();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        
-        const fetchProductos = new Promise((resolve) => {
-            setTimeout(() => {
-                resolve([
-                    { id: 1, title: "PlayStation 5", image: "/images/ps5.jpg", price: 499, category: "electronica" },
-                    { id: 2, title: "Smart TV", image: "/images/tv.jpg", price: 299, category: "hogar" }
-                ]);
-            }, 1000);
-        });
+        const productosRef = collection(db, "products");
 
-        fetchProductos.then((data) => {
-            if (categoryId) {
-                setProductos(data.filter(producto => producto.category === categoryId));
-            } else {
-                setProductos(data);
-            }
-        });
-    }, [categoryId]);
+        getDocs(productosRef)
+            .then((res) => {
+                const productosFirestore = res.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+                setProductos(productosFirestore);
+            })
+            .catch((error) => console.error("Error al traer los productos:", error))
+            .finally(() => setLoading(false));
+    }, []);
 
     return (
-        <div className="productos-container">
-            {productos.map((producto) => (
-                <Item key={producto.id} {...producto} />
-            ))}
+        <div>
+            <h2>Catálogo</h2>
+            {loading ? <p>Cargando productos...</p> : <ItemList items={productos} />}
         </div>
     );
 };

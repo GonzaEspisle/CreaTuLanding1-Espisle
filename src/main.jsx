@@ -1,5 +1,9 @@
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
+import { uploadProducts } from "./services/uploadproducts";
 
-createRoot(document.getElementById('root')).render( <App />);
+
+uploadProducts();
+
+createRoot(document.getElementById('root')).render(<App />);
