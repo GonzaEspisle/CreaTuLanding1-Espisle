@@ -1,36 +1,26 @@
-import { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../services/firebaseconfig";
-import ItemList from "./ItemList";
-import Item from "./Item";
-import { useParams } from "react-router-dom";
+// src/components/ItemListContainer.jsx
+import { useEffect, useState } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../services/firebaseconfig';
+import ItemList from './itemlist';
 
 const ItemListContainer = () => {
-    const [productos, setProductos] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [items, setItems] = useState([]);
 
     useEffect(() => {
-        const productosRef = collection(db, "products");
-
-        getDocs(productosRef)
-            .then((res) => {
-                const productosFirestore = res.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data()
-                }));
-                setProductos(productosFirestore);
-            })
-            .catch((error) => console.error("Error al traer los productos:", error))
-            .finally(() => setLoading(false));
+        const itemsCollection = collection(db, 'items');
+        getDocs(itemsCollection).then((snapshot) => {
+            const itemsList = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+            setItems(itemsList);
+        });
     }, []);
 
-    return (
-        <div>
-            <h2>Catálogo</h2>
-            {loading ? <p>Cargando productos...</p> : <ItemList items={productos} />}
-        </div>
-    );
-};
+    return <ItemList items={items} />;
+}
 
 export default ItemListContainer;
+
+
+
+
 
