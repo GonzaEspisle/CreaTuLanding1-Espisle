@@ -1,16 +1,19 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
+import '../item.css'; // Ajusta la ruta para reflejar la ubicación correcta
 
-const Item = ({ id, title, image, price }) => {
+const Item = ({ item }) => {
     return (
-        <div className="producto">
-            <img src={image} alt={title} />
-            <h3>{title}</h3>
-            <p className="precio">${price}</p>
-            <Link to={`/item/${id}`} className="boton-detalle">Ver Detalles</Link>
-            <button className="boton-carrito">Añadir al Carrito</button>
+        <div className="item">
+            <img src={item.imagen} alt={item.nombre} />
+            <h2>{item.nombre}</h2>
+            <p>{item.descripcion}</p>
+            <p>Precio: ${item.precio}</p>
+            <button>Ver Detalle</button>
         </div>
     );
-};
+}
 
 export default Item;
+
+
 

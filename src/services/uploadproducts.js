@@ -1,38 +1,23 @@
-// src/services/uploadProducts.js
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "./firebaseconfig";
 
-const products = [
+const productos = [
     {
-        title: "Alfajor de Chocolate",
-        description: "Relleno de dulce de leche y cobertura de chocolate semiamargo.",
-        price: 800,
-        stock: 20,
-        category: "chocolate",
-        image: "https://i.imgur.com/XJ4N2zP.jpg"
-    },
-    {
-        title: "Alfajor de Lemon Pie",
-        description: "Inspirado en el clásico postre, con relleno de limón.",
-        price: 850,
-        stock: 15,
-        category: "frutales",
-        image: "https://i.imgur.com/e9t7XZq.jpg"
-    },
-    {
-        title: "Alfajor de Red Velvet",
-        description: "Bizcocho rojo aterciopelado con relleno de vainilla.",
-        price: 900,
+        title: "Playstation 5",
+        description: "Consola de videojuegos",
+        price: 499.99,
         stock: 10,
-        category: "especiales",
-        image: "https://i.imgur.com/XwKb5Jk.jpg"
+        category: "Electrónica",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7arANQH9Z8J4gM3Pz5kK2mYhRjAq5yFvXxg&usqp=CAU"
     }
 ];
 
-export const uploadProducts = async () => {
-    const productosRef = collection(db, "products");
-    for (let item of products) {
+export const uploadProductos = async () => {
+    const productosRef = collection(db, "productos");
+    for (let item of productos) {
         await addDoc(productosRef, item);
+        console.log(`Producto cargado: ${item.title}`);
     }
     console.log("Productos cargados correctamente.");
 };
+
