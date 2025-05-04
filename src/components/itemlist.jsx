@@ -1,15 +1,13 @@
-import React from 'react';
-import Item from './Item';
-import '../itemlist.css'; // Importa el archivo CSS para estilos
+import Item from "./Item";
 
-const ItemList = ({ items }) => {
+const ItemList = ({ productos }) => {
     return (
         <div className="item-list">
-            {items.map(item => (
-                <Item key={item.id} item={item} />
+            {productos.map((prod) => (
+                <Item key={prod.id} producto={prod} />
             ))}
         </div>
     );
-}
+};
 
 export default ItemList;
