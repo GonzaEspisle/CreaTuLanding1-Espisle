@@ -1,6 +1,6 @@
 import ItemCount from "./ItemCount";
 import { useContext, useState } from "react";
-import { CartContext } from "./CartContext";
+import { CartContext } from "./context/CartContext";
 
 const ItemDetail = ({ producto }) => {
     const [agregado, setAgregado] = useState(false);
