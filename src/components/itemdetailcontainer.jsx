@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../services/firebaseconfig";
-import ItemDetail from "../components/ItemDetail";
+import ItemDetail from "../components/itemdetail";
 
 const ItemDetailContainer = () => {
     const [producto, setProducto] = useState(null);

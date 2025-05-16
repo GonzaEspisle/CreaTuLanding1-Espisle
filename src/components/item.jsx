@@ -7,7 +7,7 @@ const Item = ({ producto }) => {
             <h3>{producto.name}</h3>
             <p>${producto.price}</p>
             <Link to={`/producto/${producto.id}`} className="btn-ver-mas">
-                Ver más
+            Ver más
             </Link>
         </div>
     );
