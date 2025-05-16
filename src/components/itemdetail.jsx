@@ -14,10 +14,10 @@ const ItemDetail = ({ producto }) => {
 
     return (
         <div className="item-detail">
-            <img src={producto.image} alt={producto.name} />
-            <h2>{producto.name}</h2>
-            <p>{producto.description}</p>
-            <p>Precio: ${producto.price}</p>
+            <img src={producto.imagen} alt={producto.nombre} />
+            <h2>{producto.nombre}</h2>
+            <p>{producto.descripcion}</p>
+            <p>Precio: ${producto.precio}</p>
             {agregado ? (
                 <p>Producto agregado ✅</p>
             ) : (
