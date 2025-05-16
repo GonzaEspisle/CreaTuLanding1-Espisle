@@ -1,15 +1,11 @@
-import { useState, useContext } from "react";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../services/firebaseconfig";
-import { CartContext } from "./context/CartContext";
+import React, { useState } from 'react';
+import './CheckoutForm.css';
 
-const Checkout = () => {
-    const { carrito, totalCarrito, vaciarCarrito } = useContext(CartContext);
-    const [orderId, setOrderId] = useState(null);
+const CheckoutForm = ({ onConfirm }) => {
     const [formData, setFormData] = useState({
-        nombre: "",
-        email: "",
-        telefono: ""
+        nombre: '',
+        email: '',
+        telefono: ''
     });
 
     const handleChange = (e) => {
@@ -18,54 +14,54 @@ const Checkout = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const orden = {
-            comprador: formData,
-            items: carrito,
-            total: totalCarrito()
-        };
-
-        const ordenesRef = collection(db, "ordenes");
-
-        addDoc(ordenesRef, orden)
-            .then((doc) => {
-                setOrderId(doc.id);
-                vaciarCarrito();
-            });
+        onConfirm(formData);
     };
 
-    if (orderId) {
-        return <h2>¡Gracias por tu compra! Tu código de orden es: <strong>{orderId}</strong></h2>;
-    }
-
     return (
-        <div>
-            <h2>Finalizar compra</h2>
+        <div className="checkout-form-container">
+            <h2>Finalizar Compra</h2>
             <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="nombre"
-                    placeholder="Nombre"
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    onChange={handleChange}
-                    required
-                />
-                <input
-                    type="tel"
-                    name="telefono"
-                    placeholder="Teléfono"
-                    onChange={handleChange}
-                    required
-                />
-                <button type="submit">Comprar</button>
+                <div>
+                    <label htmlFor="nombre">Nombre</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        value={formData.nombre}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="email">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="telefono">Teléfono</label>
+                    <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        value={formData.telefono}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+
+                <button type="submit">Confirmar Compra</button>
             </form>
         </div>
     );
 };
 
-export default Checkout;
+export default CheckoutForm;
+

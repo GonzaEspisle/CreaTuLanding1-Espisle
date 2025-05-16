@@ -1,0 +1,56 @@
+.item-detail {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 32px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+}
+
+.item-detail img {
+    width: 280px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.item-detail h2 {
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.item-detail p {
+    font-size: 18px;
+    color: #555;
+    margin: 6px 0;
+}
+
+.item-detail .agregado {
+    color: green;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.item-detail button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.item-detail button:hover {
+    background-color: #218838;
+}

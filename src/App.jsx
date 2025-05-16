@@ -4,7 +4,7 @@ import ItemListContainer from './components/itemlistcontainer.jsx';
 import ItemDetailContainer from './components/itemdetailcontainer.jsx';
 import Cart from './components/cart.jsx';
 import Checkout from "./components/Checkout.jsx";
-import { CartContext } from './components/context/cartcontext.jsx';
+import CartProvider from './components/context/cartcontext.jsx';
 import './styles.css';
 
 
