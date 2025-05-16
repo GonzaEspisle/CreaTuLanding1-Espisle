@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -7,7 +7,7 @@ body {
     padding: 0;
 }
 
-/* Navbar Styles */
+
 nav {
     background-color: #007bff;
     padding: 1rem;
@@ -26,7 +26,7 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Item List Styles */
+
 .item-list {
     display: flex;
     flex-wrap: wrap;
@@ -58,7 +58,7 @@ nav a:hover {
     margin: 0 0 1rem;
 }
 
-/* Item Detail Styles */
+
 .item-detail {
     padding: 2rem;
     background-color: white;
@@ -83,7 +83,7 @@ nav a:hover {
     margin: 0 0 1rem;
 }
 
-/* Cart Styles */
+
 .cart {
     padding: 2rem;
     background-color: white;
@@ -114,7 +114,7 @@ nav a:hover {
     margin: 0;
 }
 
-/* Checkout Form Styles */
+
 .checkout-form {
     padding: 2rem;
     background-color: white;
@@ -149,7 +149,7 @@ nav a:hover {
     background-color: #0056b3;
 }
 
-/* Item */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
